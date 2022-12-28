@@ -1,10 +1,10 @@
-from flask import Flask
+from flask import Flask,render_template
 
 app = Flask(__name__)
 
 @app.route("/fwb/info")
 def index():
-    return "镇江气象服务中心"
+    return render_template("index.html")
 
 if __name__ == '__main__':
     app.run()

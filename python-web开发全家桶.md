@@ -6,7 +6,7 @@
 — MySQL数据库: 存储数据
 ```
 
-## 快速上手：基于Flask  Web框架快速搭建网站
+## 一、快速上手：基于Flask  Web框架快速搭建网站
 
 ### 1、安装flask模块
 
@@ -38,4 +38,247 @@ if __name__ == '__main__':
 
 ![image-20221227202642367](images/image-20221227202642367.png)
 
-## 
+### 4、通过render_template()来实现网页运行
+
+![image-20221228163937262](images/image-20221228163937262.png)
+
+![image-20221228164056309](images/image-20221228164056309.png)
+
+## 二、HTML标签学习
+
+### 2.1  编码（head）
+
+```html
+<meta chatset="UTF-8">
+```
+
+### 2.2 title（head）
+
+```html
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="Dc">
+    <meta name="description" content="镇江气象服务中心">
+    <meta name="keywords" content="资料证明，登录平台">
+    <title>气象资料证明业务应用平台</title>
+</head>
+```
+
+### 2.3  标题（body）
+
+```html
+<h1>1级标题</h1>
+<h2>2级标题</h2>
+<h3>3级标题</h3>
+<h4>4级标题</h4>
+<h5>5级标题</h5>
+<h6>6级标题</h6>
+```
+
+### 2.4 div和span
+
+```html
+<div>内容</div>
+<span>内容2</span>
+```
+
+- div 块级标签，独占整行
+- span 行级标签，内联标签，不独占整行
+
+###  2.5 超链接
+
+```html
+跳转到外部链接，必须使用url的绝对路径,使用target属性设置是否使用新标签页打开目标链接
+<a href="www.baidu.com" target="_blank">点击跳转</a>
+
+跳转到内部链接，可使用url相对路径
+<a href="www.zjqx.com/zjqx/fwb" target="_blank">点击跳转</a>
+或者：
+<a href="/zjqx/fwb" target="_blank">点击跳转</a>
+```
+
+### 2.6 图片
+
+```html
+图片标签是自闭和标签
+<img src="图片地址">
+
+想显示自己的图片，在flask项目中，有约定如下：
+ — 自己项目中创建：static目录，图片放在static目录下
+ — 在页面中引入图片
+	<img src="/static/1.png">
+
+设置图片大小，仅设定长或宽其中一个时，表示等比例调节。
+	— 指定像素
+        <img style="height:100px;width:100px;" src="/static/1.png">
+	— 指定百分比
+        <img style="height:10%;width:10%;" src="/static/1.png">
+```
+
+###  2.7 列表标签
+
+```html
+— 无序列表<ul>
+<ul>
+	<li>气象台</li>
+    <li>服务中心</li>
+    <li>装备中心</li>
+<ul>
+
+— 有序列表<ol>
+<ol>
+	<li>气象台</li>
+    <li>服务中心</li>
+    <li>装备中心</li>
+<ol>
+```
+
+### 2.8 表格
+
+```html
+<table border="1">
+    <thead>
+        <tr> <th>序号</th> <th>姓名</th> <th>年龄</th> <th>职位</th> </tr>
+    </thead>
+    <tbody>
+        <tr> <td>1</td>  <td>戴晨</td> <td>29</td> <td>职员</td> </tr>
+        <tr> <td>2</td>  <td>孙翠梅</td> <td>29</td> <td>职员</td> </tr>
+        <tr> <td>3</td>  <td>王燕</td> <td>29</td> <td>职员</td> </tr>
+        <tr> <td>4</td>  <td>张孝龙</td> <td>29</td> <td>职员</td> </tr>
+        <tr> <td>5</td>  <td>张倩</td> <td>29</td> <td>职员</td> </tr>
+    </tbody>
+</table>
+```
+
+<img src="images/image-20221228185507623.png" alt="image-20221228185507623" style="zoom:80%;" align="left"/>
+
+### 2.9 input系列
+
+```html
+文本输入
+<input type="text">
+密码输入
+<input type="password">
+文件选择
+<input type="file">
+单选
+<input type="radio" name="n1">男
+<input type="radio" name="n1">女
+复选
+<input type="checkbox">篮球
+<input type="checkbox">足球
+<input type="checkbox">网球
+<input type="checkbox">排球
+按钮
+<input type="button" value="提交">
+<input type="submit" value="提交">
+```
+
+### 2.10 下拉框
+
+```html
+单选
+<select>
+    <option>气温</option>
+    <option>降水</option>
+    <option>湿度</option>
+    <option>风向风速</option>
+    <option>气压</option>
+</select>
+多选
+<select multiple>
+    <option>气温</option>
+    <option>降水</option>
+    <option>湿度</option>
+    <option>风向风速</option>
+    <option>气压</option>
+</select>
+```
+
+### 2.11 多行文本
+
+```html
+<textarea></textarea>
+<textarea rows="3"></textarea>
+```
+
+## 三、用户注册案例
+
+### 3.1 注册页面设计
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+</head>
+<body>
+    <h1>用户注册</h1>
+    <div>
+        姓名：<input type="text">
+    </div>
+    <div>
+        单位：
+        <select>
+            <option>气象台</option>
+            <option>服务中心</option>
+            <option>装备中心</option>
+        </select>
+    </div>
+    <div>
+        身份证号：<input type="text">
+    </div>
+    <div>
+        手机号：<input type="text">
+    </div>
+    <div>
+        邮箱：<input type="text">
+    </div>
+    <div>
+        用户名：<input type="text">
+    </div>
+    <div>
+        密码：<input type="password">
+    </div>
+    <div>
+        备注：<textarea rows="4"></textarea>
+    </div>
+    <div>
+        <input type="button" value="提交">
+        <input type="submit" value="提交">
+    </div>
+</body>
+</html>
+```
+
+<img src="images/image-20221229161211098.png" alt="image-20221229161211098" style="zoom:80%;" align="left"/>
+
+### 3.2 网络请求（*）
+
++ 在浏览器的URL栏中输入地址，回车后，进行访问
+
+  ```
+  浏览器会发送数据过去，本质上发送的是字符串：
+  "GET /explore http1.1\r\nhost:...\r\nuser-agent\r\n..\r\n\r\n"
+  或者
+  "POST /explore http1.1\r\nhost:...\r\nuser-agent\r\n..\r\n\r\n数据库"
+  ```
+
+- 浏览器向后端发送请求时
+
+  +  GET请求【URL 方法 / 表单提交】
+
+    + 现象：跳转、搜索、向后台传入数据数据会拼接显示在URL上
+
+      ```
+      https://www.baidu.com/s?tn=68018901_27_oem_dg&ie=utf-8&wd=%E6%88%B4%E6%99%A8
+      ```
+
+      注意：GET请求数据会在URL中体现			
+
+  + POST请求【表单提交】
+    + 现象：提交数据不在URL中而在请求体中，如登录账号、密码
+
+### 3.3  

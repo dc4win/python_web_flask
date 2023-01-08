@@ -281,4 +281,18 @@ if __name__ == '__main__':
   + POST请求【表单提交】
     + 现象：提交数据不在URL中而在请求体中，如登录账号、密码
 
-### 3.3  
+### 3.3  注册案例
+
+想要将数据提交到后台，需满足以下条件：
+
+- form标签包裹待提交标签组件
+  - 写明提交方式：`method="get"`或 `method="post"`
+  - 写明提交地址：`action="/user/info"`
+  - form标签里面必须有submit标签
+- 在form标签里面的标签：input/select/textarea
+  - 一定要有name属性
+- 接收数据用到flask中的request模块
+  - get方式提交的数据用request.args返回
+  - post方式提交的数据用request.form访问
+
+#### 

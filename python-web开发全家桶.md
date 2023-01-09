@@ -289,10 +289,28 @@ if __name__ == '__main__':
   - 写明提交方式：`method="get"`或 `method="post"`
   - 写明提交地址：`action="/user/info"`
   - form标签里面必须有submit标签
+  
 - 在form标签里面的标签：input/select/textarea
   - 一定要有name属性
+  
+  - 对于select、radio以及checkbox输入要增加value参数
+  
+    <img src="images/image-20230109220545660.png" alt="image-20230109220545660" style="zoom:50%;" align="left"/>
+
 - 接收数据用到flask中的request模块
   - get方式提交的数据用request.args返回
-  - post方式提交的数据用request.form访问
 
-#### 
+  - post方式提交的数据用request.form访问，访问其中个别内容时，可以使用`request.form.get()`或者 `request.form.getlist()`
+
+    <img src="images/image-20230109223045211.png" alt="image-20230109223045211" style="zoom:67%;" align="left"/><img src="images/image-20230109223131219.png" alt="image-20230109223131219" style="zoom:67%;" /><img src="images/image-20230109223207865.png" alt="image-20230109223207865" style="zoom:80%;" />
+
+  
+
+- 例如注册或者登录这种网页，访问时使用GET 方法，提交内容时使用post方法，可以在flask框架中进行精简
+
+  - 第一步：在flask框架代码中，将register地址的访问方式修改为GET+POST:`methods=["GET","POST"]`
+  - 第二步：对request方法进行判断，GET访问就返回注册页面，否则返回POST访问的相关内容
+  - 第三步：在register.html文件中，将`<form>`表单的`action`地址修改为/register
+
+​		<img src="images/image-20230109224207053.png" alt="image-20230109224207053" style="zoom: 50%;" align="left"/><img src="images/image-20230109224812070.png" alt="image-20230109224812070" style="zoom: 50%;" />
+

@@ -2,7 +2,7 @@ from flask import Flask,render_template,request
 
 app = Flask(__name__)
 
-@app.route("/fwb/info")
+@app.route("/index")
 def index():
     return render_template("index.html")
 
@@ -20,6 +20,16 @@ def register():
         print("擅长方向：", request.form.getlist("youshi"))
         return "注册成功"
 
+@app.route("/login",methods=["GET","POST"])
+def login():
+    if request.method=="GET":
+        return render_template("login.html")
+    else:
+        user = request.form.get("user")
+        pwd = request.form.get("password")
+        print("用户名：",user)
+        print("密码:",pwd)
+        return render_template("login2index.html")
 # @app.route("/register/content",methods=["POST"])
 # def register_result():
 #     #1、当使用get方法时可以采用(request.args)

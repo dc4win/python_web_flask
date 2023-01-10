@@ -314,3 +314,235 @@ if __name__ == '__main__':
 
 ​		<img src="images/image-20230109224207053.png" alt="image-20230109224207053" style="zoom: 50%;" align="left"/><img src="images/image-20230109224812070.png" alt="image-20230109224812070" style="zoom: 50%;" />
 
+## 四、CSS样式
+
+### 4.1 快速了解样式
+
+```html
+<img src="..." style="height:100px"/>
+<div style="color:red;">镇江市气象局</div>
+```
+
+### 4.2 CSS应用方式（3种）
+
+1. 在标签上
+
+   ```html
+   <img src="..." style="height:100px"/>
+   <div style="color:red;">镇江市气象局</div>
+   ```
+
+2. 在head标签中
+
+   ```html
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <title>登录界面</title>
+       <style>
+           .c1{
+               color:red;
+           }
+       </style>
+   </head>
+   <body>
+       <h1 class="c1">用户登录</h1>
+       <form method="post" action="/login">
+       <div>用户名：<input type="text" name="user"></div>
+       <div>密码：<input type="password" name="password"></div>
+       <div><input type="submit" value="登录"></div>
+       </form>
+   </body>
+   </html>
+   ```
+
+   ![image-20230110195919730](images/image-20230110195919730.png) 
+
+3. 外部链接CSS
+
+   ```css
+   .c1{
+       color:red;
+   }
+   .c2{
+       color:blue;
+   }
+   ```
+
+   ```html
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <title>登录界面</title>
+   	<link rel="stylesheet" href="../static/100.css">
+   </head>
+   <body>
+       <h1 class="c1">用户登录</h1>
+       <form method="post" action="/login">
+       <div class="c2">用户名：<input type="text" name="user"></div>
+       <div class="c2">密码：<input type="password" name="password"></div>
+       <div><input type="submit" value="登录"></div>
+       </form>
+   </body>
+   </html>
+   ```
+
+​		![image-20230110210829047](images/image-20230110210829047.png)
+
+### 4.3 选择器
+
+- ID选择器
+
+  ```html
+  #c1{
+  
+  }
+  <div id="c1"></div>
+  ```
+
+- 类选择器（最多使用）
+
+  ```html
+  .c1{
+  
+  }
+  <div class="c1"></div>
+  ```
+
+- 标签选择器
+
+  ```html
+  div{
+  
+  }
+  
+  <div>xxx</div>
+  ```
+
+- 属性选择器 
+
+  ```html
+  input[type="text"]{
+  	border:1px solid red;
+  }
+  .v1[xx="456"]{
+  	color:pink;
+  }
+  ```
+
+  ```html
+  <input type="text">
+  <input type="password">
+  
+  <div class="v1" xx="123">a</div>
+  <div class="v1" xx="456">b</div>
+  <div class="v1" xx="789">c</div>
+  ```
+
+- 后代选择器
+
+  ```html
+  !设置class=yy中所有的li标签
+  .yy li{
+  	color:pink;
+  }
+  !只设置class=yy中一级a标签,即“镇江市气象局”
+  .yy > a{
+  	color:blue;
+  }
+  ```
+
+  ```html
+  <div class="yy">
+      <a>镇江市气象局</a>
+      <div>
+      	<a>气象服务中心<a>
+      </div>
+      <ul>
+          <li>戴晨</li>
+          <li>张孝龙</li>
+          <li>孙翠梅</li>
+  </div>
+  ```
+
+### 4.4 具体样式
+
+1. #### 高度和宽度
+
+   ```css
+   .c1{
+       height:300px;
+       width:500px;
+   }
+   ```
+
+   注意事项：
+
+   - 仅宽度支持百分比，高度不支持
+   - 对行内标签无效，例如span
+
+2. #### 块级和行内标签
+
+   - 若想使行内标签能够支持高度宽度设置，可以使用标签 `display:inline-block`
+
+   ```css
+   .c1{
+       display:inline-block;
+       height:100px;
+       width:50px;
+   }
+   ```
+
+   - 块级标签和行内标签相互转换
+
+   ```html
+   <div style="display:inline;">镇江市气象局</div>   #块级标签转化为行内标签
+   <span style="display:block;">镇江市气象局</span>   #行内标签转化为块级标签
+   ```
+
+3. #### 颜色和字体
+
+   - 颜色：color  *（可百度搜索RGB对照表）*
+
+   - 大小：font-size
+
+   - 加粗：font-weight
+
+   - 字体格式：font-family
+
+   ```css
+   .c1{
+       color:red;
+       font-size:25px
+       font-weight:500;
+       font-family:Microsoft Yahei;
+   }
+   ```
+
+4. #### 文字对齐方式
+
+   ```html
+   <style>
+       .c1{
+           height:58px;
+           width:30px;
+           border:1px solid red;
+           
+           text-align:center; /* 水平方向居中 */
+           line-height:58px; /* 垂直方向居中，也就是将行高设置为height相同数值 */
+       }
+   </style>
+   ```
+
+   ```html
+   <div class="c1">
+       镇江市气象局
+   </div>
+   ```
+
+   
+
+
+

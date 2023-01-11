@@ -537,12 +537,56 @@ if __name__ == '__main__':
    ```
 
    ```html
-   <div class="c1">
-       镇江市气象局
+   <div class="c1">    镇江市气象局</div>
+   ```
+
+5. #### 浮动
+
+   ```html
+   <div>
+       <span>我在最左边</span>
+       <span style="float:right">我在最右边</span>
    </div>
    ```
 
-   
+   ![image-20230111082034198](images/image-20230111082034198.png)
 
+   div默认是块级标签，独占一行，如果浮动起来，不再独占一行
 
+   ```html
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <title>浮动标签</title>
+       <style>
+           .item{
+               float:left;
+               height:200px;
+               width:150px;
+               border:10px dashed #613fff;
+           }
+       </style>
+   </head>
+   <body>
+       <div class="item">
+           <span>我在最左边</span>
+           <span style="float:right">我在最右边</span>
+       </div>
+   </body>
+   </html>
+   ```
 
+   ![image-20230111082648027](images/image-20230111082648027.png)
+
+​		注意事项：浮动之后的div如果处于子级中，此时在父级中添加样式，会出现无效的效果，例如：
+
+​		<img src="images/image-20230111083441867.png" alt="image-20230111083441867" style="zoom:67%;" />
+
+<img src="images/image-20230111083527953.png" alt="image-20230111083527953" style="zoom:67%;" /> 
+
+​		修改方法：在子级最后添加 `<div style="clear:both;"></div>`
+
+​		<img src="images/image-20230111083750908.png" alt="image-20230111083750908" style="zoom:67%;" />
+
+<img src="images/image-20230111083805809.png" alt="image-20230111083805809" style="zoom: 33%;" />	 

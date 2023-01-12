@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内边距</title>
+    <style>
+        .outer{
+            border: 1px solid red;
+            display: inline-block;
+            height:40px;
+            weight:40px;
+            /*1、依次设置上下左右边界*/
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            /*2、上下左右全部为20px*/
+            padding: 20px;
+            /*3、按照上右下左的顺序设置边界  */
+            padding: 20px 10px 20px 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div>镇江市气象局</div>
+       <div>镇江市气象服务中心</div>
+    </div>
+
+</body>
+</html>

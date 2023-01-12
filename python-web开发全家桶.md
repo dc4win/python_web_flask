@@ -469,115 +469,115 @@ if __name__ == '__main__':
 
 ### 4.4 具体样式
 
-1. #### 高度和宽度
+#### 1、高度和宽度
 
-   ```css
-   .c1{
-       height:300px;
-       width:500px;
-   }
-   ```
+```css
+.c1{
+    height:300px;
+    width:500px;
+}
+```
 
-   注意事项：
+注意事项：
 
-   - 仅宽度支持百分比，高度不支持
-   - 对行内标签无效，例如span
+- 仅宽度支持百分比，高度、边距 不支持
+- 对行内标签无效，例如span
 
-2. #### 块级和行内标签
+#### 2、块级和行内标签
 
-   - 若想使行内标签能够支持高度宽度设置，可以使用标签 `display:inline-block`
+- 若想使行内标签能够支持高度宽度设置，可以使用标签 `display:inline-block`
 
-   ```css
-   .c1{
-       display:inline-block;
-       height:100px;
-       width:50px;
-   }
-   ```
+```css
+.c1{
+    display:inline-block;
+    height:100px;
+    width:50px;
+}
+```
 
-   - 块级标签和行内标签相互转换
+- 块级标签和行内标签相互转换
 
-   ```html
-   <div style="display:inline;">镇江市气象局</div>   #块级标签转化为行内标签
-   <span style="display:block;">镇江市气象局</span>   #行内标签转化为块级标签
-   ```
+```html
+<div style="display:inline;">镇江市气象局</div>   #块级标签转化为行内标签
+<span style="display:block;">镇江市气象局</span>   #行内标签转化为块级标签
+```
 
-3. #### 颜色和字体
+#### 3、颜色和字体
 
-   - 颜色：color  *（可百度搜索RGB对照表）*
+- 颜色：color  *（可百度搜索RGB对照表）*
 
-   - 大小：font-size
+- 大小：font-size
 
-   - 加粗：font-weight
+- 加粗：font-weight
 
-   - 字体格式：font-family
+- 字体格式：font-family
 
-   ```css
-   .c1{
-       color:red;
-       font-size:25px
-       font-weight:500;
-       font-family:Microsoft Yahei;
-   }
-   ```
+```css
+.c1{
+    color:red;
+    font-size:25px
+    font-weight:500;
+    font-family:Microsoft Yahei;
+}
+```
 
-4. #### 文字对齐方式
+#### 4、文字对齐方式
 
-   ```html
-   <style>
-       .c1{
-           height:58px;
-           width:30px;
-           border:1px solid red;
-           
-           text-align:center; /* 水平方向居中 */
-           line-height:58px; /* 垂直方向居中，也就是将行高设置为height相同数值 */
-       }
-   </style>
-   ```
+```html
+<style>
+    .c1{
+        height:58px;
+        width:30px;
+        border:1px solid red;
+        
+        text-align:center; /* 水平方向居中 */
+        line-height:58px; /* 垂直方向居中，也就是将行高设置为height相同数值 */
+    }
+</style>
+```
 
-   ```html
-   <div class="c1">    镇江市气象局</div>
-   ```
+```html
+<div class="c1">    镇江市气象局</div>
+```
 
-5. #### 浮动
+#### 5、浮动
 
-   ```html
-   <div>
-       <span>我在最左边</span>
-       <span style="float:right">我在最右边</span>
-   </div>
-   ```
+```html
+<div>
+    <span>我在最左边</span>
+    <span style="float:right">我在最右边</span>
+</div>
+```
 
-   ![image-20230111082034198](images/image-20230111082034198.png)
+![image-20230111082034198](images/image-20230111082034198.png)
 
-   div默认是块级标签，独占一行，如果浮动起来，不再独占一行
+div默认是块级标签，独占一行，如果浮动起来，不再独占一行
 
-   ```html
-   <!DOCTYPE html>
-   <html lang="en">
-   <head>
-       <meta charset="UTF-8">
-       <title>浮动标签</title>
-       <style>
-           .item{
-               float:left;
-               height:200px;
-               width:150px;
-               border:10px dashed #613fff;
-           }
-       </style>
-   </head>
-   <body>
-       <div class="item">
-           <span>我在最左边</span>
-           <span style="float:right">我在最右边</span>
-       </div>
-   </body>
-   </html>
-   ```
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动标签</title>
+    <style>
+        .item{
+            float:left;
+            height:200px;
+            width:150px;
+            border:10px dashed #613fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="item">
+        <span>我在最左边</span>
+        <span style="float:right">我在最右边</span>
+    </div>
+</body>
+</html>
+```
 
-   ![image-20230111082648027](images/image-20230111082648027.png)
+![image-20230111082648027](images/image-20230111082648027.png)
 
 ​		注意事项：浮动之后的div如果处于子级中，此时在父级中添加样式，会出现无效的效果，例如：
 
@@ -590,3 +590,203 @@ if __name__ == '__main__':
 ​		<img src="images/image-20230111083750908.png" alt="image-20230111083750908" style="zoom:67%;" />
 
 <img src="images/image-20230111083805809.png" alt="image-20230111083805809" style="zoom: 33%;" />	 
+
+#### 6、内边距(padding)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内边距</title>
+    <style>
+        .outer{
+            border: 1px solid red;
+            display: inline-block;
+            height:40px;
+            weight:40px;
+            /*1、依次设置上下左右边界*/
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            /*2、上下左右全部为20px*/
+            padding: 20px;
+            /*3、按照上右下左的顺序设置边界  */
+            padding: 20px 10px 20px 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div>镇江市气象局</div>
+       <div>镇江市气象服务中心</div>
+    </div>
+
+</body>
+</html>
+```
+
+![image-20230112191309746](images/image-20230112191309746.png) 
+
+#### 7、外边距(margin)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>外边距</title>
+</head>
+<body>
+    <span style="height:70px; width:100px; color: white;background-color: blue;margin-left: 15px; margin-right: 20px ">镇江市气象局</span>
+    <span style="height:50px; width:35px; color: white;background-color: blueviolet; margin-left: 35px">气象服务中心</span>
+</body>
+</html>
+```
+
+![image-20230112191415166](images/image-20230112191415166.png) 
+
+#### 8、实用Tips
+
+- html默认上下左右元素显示与网页边缘有间距，设计网页时需要取消该间距
+
+  ```html
+  <style>
+      body{
+          margin:0;
+      }
+  </style>
+  ```
+
+- 对某一区域设置居中
+
+  ```html
+  <style>
+      .c1{
+          width: 500px;
+          background-color: black;
+          height:1000px;
+          margin: 0 auto;
+      }
+  </style>
+  ```
+
+- 综合样例展示：
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>区域居中</title>
+      <style>
+          body{
+              margin:0;
+          }
+          .c1{
+              width: 500px;
+              background-color: black;
+              height:1000px;
+              margin: 0 auto;
+          }
+      </style>
+  </head>
+  <body>
+      <div class="c1"></div>
+  
+  </body>
+  </html>
+  ```
+
+  <img src="images/image-20230112193034953.png" alt="image-20230112193034953" style="zoom: 25%;" />
+
+- a标签取消下划线：`text-decoration:none`
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>a标签下划线取消</title>
+      <style>
+          a{
+              text-decoration: none;
+              font-size: 100px;
+          }
+      </style>
+  </head>
+  <body>
+      <a href="案例：小米商城导航栏.html">直达小米商城</a>
+  </body>
+  </html>
+  ```
+
+  ![image-20230112211059354](images/image-20230112211059354.png) 
+
+### 		4.5 案例：小米商城
+
+​			<img src="images/image-20230112203034229.png" alt="image-20230112203034229" style="zoom: 50%;" />  
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小米商城</title>
+    <style>
+        body{
+            margin: 0;
+        }
+
+        .header{
+            background-color: #333 ;
+        }
+
+        .header a{
+            line-height:38px;
+            color:white;
+            font-size: 12px;
+            margin-right:10px;
+        }
+
+        .header .menu{
+            float:left;
+        }
+
+        .container{
+            width:1226px;
+            margin:0 auto;
+        }
+
+        .header .account{
+            float:right;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+             <div class="menu">
+                <a>小米商城</a>
+                <a>MIUI</a>
+                <a>loT</a>
+                <a>云服务</a>
+                <a>天星数科</a>
+            </div>
+
+            <div class="account">
+                <a>登录</a>
+                <a>注册</a>
+                <a>消息通知</a>
+            </div>
+
+        </div>
+        <div style="clear: both"></div>
+    </div>
+</body>
+</html>
+```
+
+### 

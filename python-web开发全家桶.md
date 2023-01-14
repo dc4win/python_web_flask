@@ -672,35 +672,6 @@ div默认是块级标签，独占一行，如果浮动起来，不再独占一�
   </style>
   ```
 
-- 综合样例展示：
-
-  ```html
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <title>区域居中</title>
-      <style>
-          body{
-              margin:0;
-          }
-          .c1{
-              width: 500px;
-              background-color: black;
-              height:1000px;
-              margin: 0 auto;
-          }
-      </style>
-  </head>
-  <body>
-      <div class="c1"></div>
-  
-  </body>
-  </html>
-  ```
-
-  <img src="images/image-20230112193034953.png" alt="image-20230112193034953" style="zoom: 25%;" />
-
 - a标签取消下划线：`text-decoration:none`
 
   ```html
@@ -724,69 +695,54 @@ div默认是块级标签，独占一行，如果浮动起来，不再独占一�
 
   ![image-20230112211059354](images/image-20230112211059354.png) 
 
+- 在编写html网页时，往往是先设置框架的尺寸，再设置里面的img尺寸。这样会出现重复设置尺寸的问题：即先设置完成了div尺寸，然后写图片时又再次设置一次。可以这样解决：
+
+  ```css
+  img{
+  	width:100%;
+      height:100%;
+  }
+  
+  .img-sd{
+      height:250px;
+      width:100px;
+  }
+  ```
+
+  ```html
+  <div class='img-sd'>
+      <img src="..."/>
+  </div>
+  ```
+
+- 对于网页中普遍出现的样式，比如浮动样式，可以单独设类选择器，方便网页中各种标签组件使用：
+
+  ```css
+  .left{
+  	float:left;
+  }
+  
+  .container{
+      width:100px;
+      height:80px;
+      color:red;
+  }
+  ```
+
+  ```html
+  <div class="container left"></div>
+  ```
+
+  
+
 ### 		4.5 案例：小米商城
 
-​			<img src="images/image-20230112203034229.png" alt="image-20230112203034229" style="zoom: 50%;" />  
+​		见html_examples文件夹
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>小米商城</title>
-    <style>
-        body{
-            margin: 0;
-        }
+### 4.6 CSS知识点
 
-        .header{
-            background-color: #333 ;
-        }
+#### 	1、hover
 
-        .header a{
-            line-height:38px;
-            color:white;
-            font-size: 12px;
-            margin-right:10px;
-        }
+#### 	2、after
 
-        .header .menu{
-            float:left;
-        }
-
-        .container{
-            width:1226px;
-            margin:0 auto;
-        }
-
-        .header .account{
-            float:right;
-
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <div class="container">
-             <div class="menu">
-                <a>小米商城</a>
-                <a>MIUI</a>
-                <a>loT</a>
-                <a>云服务</a>
-                <a>天星数科</a>
-            </div>
-
-            <div class="account">
-                <a>登录</a>
-                <a>注册</a>
-                <a>消息通知</a>
-            </div>
-
-        </div>
-        <div style="clear: both"></div>
-    </div>
-</body>
-</html>
-```
-
-### 
+​		 		

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hover</title>
+    <style>
+        body {
+            margin:0;
+        }
+
+        .hover1 {
+            height: 300px;
+            width:100px;
+            border: 3px solid #da58ff;
+        }
+
+        .hover1:hover {
+            border:1px dashed blue;
+        }
+        /*针对hover2中的image实现悬浮显示：第一步通过display:none设置默认不显示*/
+        .image {
+            height:100px;
+            width:100px;
+            display: none;
+        }
+        /*针对hover2中的image实现悬浮显示：第二步通过:hover .image和display:block实现针对image的悬浮显示*/
+        .hover2:hover .image{
+            display: block;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div class="hover1">hover案例1</div>
+    <div class="hover2">
+        <div class="text">悬浮显示</div>
+        <div class="image">
+            <img src='../static/logo-mi2.png' alt="图片无法加载">
+        </div>
+    </div>
+</body>
+</html>
